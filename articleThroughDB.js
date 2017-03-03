@@ -10,12 +10,21 @@ app.use('/css/bootstrap.css',
         express.static('node_module/bootstrap/dist/css/bootstrap.css'))
 
 app.get('/articles', (req, res, next) => {
-  res.send(req.params)
-
+  Article.all((err, articles) => {
+    if (err) return next(err)
+    res.format({
+      html: () => {
+        res.render('./articles.ejs', { articles: articles })
+      },
+      json: () => {
+        res.send(articles)
+      }
+    })
+  })
 })
 
 app.get('/articles/:id', (req, res, next) => {
-  console.log(req.params)
+  console.log('', req.params)
   const id = req.params.id
   Article.find(id, (err, article) => {
     if (err) return next(err)
