@@ -1,3 +1,3 @@
-MyNodejsLearnings
+MyNodejsLearning
 
-How did I learn nodejs
+How did I learn nodejs.
