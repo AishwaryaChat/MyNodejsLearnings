@@ -29,4 +29,4 @@ class Article {
 }
 
 module.exports = db
-module.exports.Article = Atricle
+module.exports.Article = Article
